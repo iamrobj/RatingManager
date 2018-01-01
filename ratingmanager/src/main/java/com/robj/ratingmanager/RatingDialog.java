@@ -12,7 +12,7 @@ import android.support.v7.app.AlertDialog;
 class RatingDialog {
 
     @StyleRes
-    private int dialogThemeResId = R.style.AppTheme_Dialog;
+    private int dialogThemeResId;
 
     private String initialPopupMessage;
     private String intialPopupNegativeBtnText;

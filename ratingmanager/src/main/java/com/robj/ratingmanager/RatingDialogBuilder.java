@@ -2,13 +2,14 @@ package com.robj.ratingmanager;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 
 import com.robj.ratingmanager.R;
 
 public class RatingDialogBuilder {
 
-    private int dialogThemeResId = R.style.AppTheme_Dialog;
+    private int dialogThemeResId = R.style.RatingManagerTheme_Dialog;
 
     private String initialPopupMessage;
     private String intialPopupPositiveBtnText;
@@ -71,7 +72,7 @@ public class RatingDialogBuilder {
         showFeedbackOption = false;
     }
 
-    public RatingDialogBuilder setDialogThemeResId(int dialogThemeResId) {
+    public RatingDialogBuilder setDialogThemeResId(@StyleRes int dialogThemeResId) {
         this.dialogThemeResId = dialogThemeResId;
         return this;
     }
