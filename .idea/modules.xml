@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FirebaseMessagingUtils.iml" filepath="$PROJECT_DIR$/FirebaseMessagingUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RatingManager.iml" filepath="$PROJECT_DIR$/RatingManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firebasemessagingutils/firebasemessagingutils.iml" filepath="$PROJECT_DIR$/firebasemessagingutils/firebasemessagingutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ratingmanager/ratingmanager.iml" filepath="$PROJECT_DIR$/ratingmanager/ratingmanager.iml" />
+    </modules>
+  </component>
+</project>

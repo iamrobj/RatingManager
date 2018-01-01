@@ -1,0 +1,19 @@
+<resources>
+    <string name="dialog_open_with">Open with..</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ask_me_later">Ask me later</string>
+    <string name="initial_rating_title">Are you enjoying %1$s?</string>
+    <string name="leave_feedback">Leave feedback</string>
+    <string name="feedback_title">We\'re sorry to hear that</string>
+    <string name="feedback_text">Your opinion matters greatly to us so if you\'d like to drop us an email about how we can improve your experience, we\'ll get back to asap!</string>
+
+    <string name="email_feedback_subject">Re: %1$s - Feedback</string>
+
+    <!-- Rating -->
+    <string name="rating_title">Recommend Us</string>
+    <string name="rating_text">We\'d love your help to become a 5* app by leaving a review!</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="maybe_later">Maybe Later</string>
+
+</resources>
