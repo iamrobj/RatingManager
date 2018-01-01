@@ -44,18 +44,33 @@ public class RatingManager {
     }
 
     public boolean shouldShowRatingDialog() {
-        if(DataManager.wasRatingLeft(getContext()))
+        if(DataManager.wasRatingLeft(getContext())) {
+            Log.i(TAG, "Rating already left, nothing doing..");
             return false;
-        if(DataManager.isNeverAsk(getContext()))
+        }
+        if(DataManager.isNeverAsk(getContext())) {
+            Log.i(TAG, "Never ask was checked, nothing doing..");
             return false;
-        if(DataManager.getDaysSinceInstall(getContext()) < minDaysSinceInstall)
+        }
+        if(DataManager.getDaysSinceInstall(getContext()) < minDaysSinceInstall) {
+            Log.i(TAG, "Days since install not met, nothing doing..");
             return false;
-        if(DataManager.wasFeedbackLeft(getContext()) &&
-                ((DataManager.getFeedbackLeftBuild(getContext()) >= DataManager.getCurrentVersionCode(getContext())) ||
-                        DataManager.getDaysSinceFeedbackLeft(getContext()) < minDaysSinceFeedback))
+        }
+        if(DataManager.wasFeedbackLeft(getContext())) {
+            int feedbackLeftBuild = DataManager.getFeedbackLeftBuild(getContext());
+            if(feedbackLeftBuild >= DataManager.getCurrentVersionCode(getContext())) {
+                Log.i(TAG, "Feedback left for build " + feedbackLeftBuild + ", nothing doing..");
+                return false;
+            }
+            if(DataManager.getDaysSinceFeedbackLeft(getContext()) < minDaysSinceFeedback) {
+                Log.i(TAG, "Days since feedback left not met, nothing doing..");
+                return false;
+            }
+        }
+        if(DataManager.wasAskLater(getContext()) && DataManager.getDaysSinceAskLater(getContext()) < minDaysSinceAskLater) {
+            Log.i(TAG, "Days since ask later not met, nothing doing..");
             return false;
-        if(DataManager.wasAskLater(getContext()) && DataManager.getDaysSinceAskLater(getContext()) < minDaysSinceAskLater)
-            return false;
+        }
 
         for (Rule rule : rules)
             if (!rule.isRuleMet()) {

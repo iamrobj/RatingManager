@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.StyleRes;
 import android.support.v7.app.AlertDialog;
-import com.robj.ratingmanager.R;
 /**
  * Created by Rob J on 16/09/17.
  */
 
-public class RatingDialog {
+class RatingDialog {
 
     @StyleRes
     private int dialogThemeResId = R.style.AppTheme_Dialog;

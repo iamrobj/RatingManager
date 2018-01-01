@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * Created by jj on 01/01/18.
  */
 
-public final class DataManager {
+final class DataManager {
 
     private static final String RATED = "RATED";
     private static final String INSTALL_DATE = "INSTALL_DATE";

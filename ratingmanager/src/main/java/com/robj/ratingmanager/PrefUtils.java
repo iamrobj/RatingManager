@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 /**
  * Created by JJ on 23/05/15.
  */
-public class PrefUtils {
+class PrefUtils {
 
     private final static String PREFS = "_RatingManagerPrefs";
 
