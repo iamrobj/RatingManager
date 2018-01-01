@@ -4,8 +4,6 @@ import android.content.Context;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -16,12 +14,12 @@ public class ExampleUnitTest {
     @Test
     public void testBuilder() {
         Context context = null; //Mock context for testing build
-        RatingDialogBuilder ratingDialogBuilder = new RatingDialogBuilder(context);
+        RatingDialogOptionsBuilder ratingDialogOptionsBuilder = new RatingDialogOptionsBuilder(context);
         new RatingManager.Builder(context)
                 .setMinDaysSinceInstall(1)
                 .setMinDaysSinceAskLater(3)
                 .setMinDaysSinceFeedback(3)
-                .setRatingDialog(ratingDialogBuilder);
+                .setRatingDialogOptions(ratingDialogOptionsBuilder);
     }
 
 //    @Test

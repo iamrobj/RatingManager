@@ -5,9 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 
-import com.robj.ratingmanager.R;
-
-public class RatingDialogBuilder {
+public class RatingDialogOptionsBuilder {
 
     private int dialogThemeResId = R.style.RatingManagerTheme_Dialog;
 
@@ -46,7 +44,7 @@ public class RatingDialogBuilder {
         return "Unknown";
     }
 
-    public RatingDialogBuilder(Context context) {
+    public RatingDialogOptionsBuilder(Context context) {
         String appName = getAppLabel(context);
         initialPopupMessage = context.getString(R.string.initial_rating_title, appName);
         intialPopupPositiveBtnText = context.getString(R.string.yes);
@@ -72,102 +70,102 @@ public class RatingDialogBuilder {
         showFeedbackOption = false;
     }
 
-    public RatingDialogBuilder setDialogThemeResId(@StyleRes int dialogThemeResId) {
+    public RatingDialogOptionsBuilder setDialogThemeResId(@StyleRes int dialogThemeResId) {
         this.dialogThemeResId = dialogThemeResId;
         return this;
     }
 
-    public RatingDialogBuilder setInitialPopupMessage(String initialPopupMessage) {
+    public RatingDialogOptionsBuilder setInitialPopupMessage(String initialPopupMessage) {
         this.initialPopupMessage = initialPopupMessage;
         return this;
     }
 
-    public RatingDialogBuilder setIntialPopupNegativeBtnText(String intialPopupNegativeBtnText) {
+    public RatingDialogOptionsBuilder setIntialPopupNegativeBtnText(String intialPopupNegativeBtnText) {
         this.intialPopupNegativeBtnText = intialPopupNegativeBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setIntialPopupPositiveBtnText(String intialPopupPositiveBtnText) {
+    public RatingDialogOptionsBuilder setIntialPopupPositiveBtnText(String intialPopupPositiveBtnText) {
         this.intialPopupPositiveBtnText = intialPopupPositiveBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setIntialPopupLaterBtnText(String intialPopupLaterBtnText) {
+    public RatingDialogOptionsBuilder setIntialPopupLaterBtnText(String intialPopupLaterBtnText) {
         this.intialPopupLaterBtnText = intialPopupLaterBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setRatingPopupTitle(String ratingPopupTitle) {
+    public RatingDialogOptionsBuilder setRatingPopupTitle(String ratingPopupTitle) {
         this.ratingPopupTitle = ratingPopupTitle;
         return this;
     }
 
-    public RatingDialogBuilder setRatingPopupMessage(String ratingPopupMessage) {
+    public RatingDialogOptionsBuilder setRatingPopupMessage(String ratingPopupMessage) {
         this.ratingPopupMessage = ratingPopupMessage;
         return this;
     }
 
-    public RatingDialogBuilder setRatingPopupNegativeBtnText(String ratingPopupNegativeBtnText) {
+    public RatingDialogOptionsBuilder setRatingPopupNegativeBtnText(String ratingPopupNegativeBtnText) {
         this.ratingPopupNegativeBtnText = ratingPopupNegativeBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setRatingPopupPositiveBtnText(String ratingPopupPositiveBtnText) {
+    public RatingDialogOptionsBuilder setRatingPopupPositiveBtnText(String ratingPopupPositiveBtnText) {
         this.ratingPopupPositiveBtnText = ratingPopupPositiveBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setRatingPopupLaterBtnText(String ratingPopupLaterBtnText) {
+    public RatingDialogOptionsBuilder setRatingPopupLaterBtnText(String ratingPopupLaterBtnText) {
         this.ratingPopupLaterBtnText = ratingPopupLaterBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setRatingUrl(String ratingUrl) {
+    public RatingDialogOptionsBuilder setRatingUrl(String ratingUrl) {
         this.ratingUrl = ratingUrl;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackPopupTitle(String feedbackPopupTitle) {
+    public RatingDialogOptionsBuilder setFeedbackPopupTitle(String feedbackPopupTitle) {
         this.feedbackPopupTitle = feedbackPopupTitle;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackPopupMessage(String feedbackPopupMessage) {
+    public RatingDialogOptionsBuilder setFeedbackPopupMessage(String feedbackPopupMessage) {
         this.feedbackPopupMessage = feedbackPopupMessage;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackPopupNegativeBtnText(String feedbackPopupNegativeBtnText) {
+    public RatingDialogOptionsBuilder setFeedbackPopupNegativeBtnText(String feedbackPopupNegativeBtnText) {
         this.feedbackPopupNegativeBtnText = feedbackPopupNegativeBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackPopupPositiveBtnText(String feedbackPopupPositiveBtnText) {
+    public RatingDialogOptionsBuilder setFeedbackPopupPositiveBtnText(String feedbackPopupPositiveBtnText) {
         this.feedbackPopupPositiveBtnText = feedbackPopupPositiveBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackPopupLaterBtnText(String feedbackPopupLaterBtnText) {
+    public RatingDialogOptionsBuilder setFeedbackPopupLaterBtnText(String feedbackPopupLaterBtnText) {
         this.feedbackPopupLaterBtnText = feedbackPopupLaterBtnText;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackEmailAddress(String feedbackEmailAddress) {
+    public RatingDialogOptionsBuilder setFeedbackEmailAddress(String feedbackEmailAddress) {
         this.feedbackEmailAddress = feedbackEmailAddress;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackEmailSubject(String feedbackEmailSubject) {
+    public RatingDialogOptionsBuilder setFeedbackEmailSubject(String feedbackEmailSubject) {
         this.feedbackEmailSubject = feedbackEmailSubject;
         return this;
     }
 
-    public RatingDialogBuilder setFeedbackEmailBody(String feedbackEmailBody) {
+    public RatingDialogOptionsBuilder setFeedbackEmailBody(String feedbackEmailBody) {
         this.feedbackEmailBody = feedbackEmailBody;
         return this;
     }
 
-    public RatingDialogBuilder showFeedbackOption(boolean showFeedbackOption) {
+    public RatingDialogOptionsBuilder showFeedbackOption(boolean showFeedbackOption) {
         this.showFeedbackOption = showFeedbackOption;
         return this;
     }
