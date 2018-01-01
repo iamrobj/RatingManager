@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
 
 final class DataManager {
 
-    private static final String RATED = "RATED";
-    private static final String INSTALL_DATE = "INSTALL_DATE";
-    private static final String LEFT_FEEDBACK_DATE = "LEFT_FEEDBACK_DATE";
-    private static final String LEFT_FEEDBACK_BUILD = "LEFT_FEEDBACK_BUILD";
-    private static final String ASK_LATER_DATE = "ASK_LATER_DATE";
-    private static final String DECLINED_TO_RATE = "DECLINED_TO_RATE";
-    private static final String DECLINED_TO_FEEDBACK = "DECLINED_TO_FEEDBACK";
-    private static final String NEVER_ASK = "NEVER_ASK";
+    protected static final String RATED = "RATED";
+    protected static final String INSTALL_DATE = "INSTALL_DATE";
+    protected static final String LEFT_FEEDBACK_DATE = "LEFT_FEEDBACK_DATE";
+    protected static final String LEFT_FEEDBACK_BUILD = "LEFT_FEEDBACK_BUILD";
+    protected static final String ASK_LATER_DATE = "ASK_LATER_DATE";
+    protected static final String DECLINED_TO_RATE = "DECLINED_TO_RATE";
+    protected static final String DECLINED_TO_FEEDBACK = "DECLINED_TO_FEEDBACK";
+    protected static final String NEVER_ASK = "NEVER_ASK";
 
     private static long getNow() {
         return System.currentTimeMillis();
