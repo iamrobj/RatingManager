@@ -15,8 +15,6 @@ final class DataManager {
     protected static final String LEFT_FEEDBACK_DATE = "LEFT_FEEDBACK_DATE";
     protected static final String LEFT_FEEDBACK_BUILD = "LEFT_FEEDBACK_BUILD";
     protected static final String ASK_LATER_DATE = "ASK_LATER_DATE";
-    protected static final String DECLINED_TO_RATE = "DECLINED_TO_RATE";
-    protected static final String DECLINED_TO_FEEDBACK = "DECLINED_TO_FEEDBACK";
     protected static final String NEVER_ASK = "NEVER_ASK";
 
     private static long getNow() {
@@ -95,11 +93,4 @@ final class DataManager {
         PrefUtils.writeLongPref(context, ASK_LATER_DATE, getNow());
     }
 
-    public static void setDeclinedToRate(Context context) {
-        PrefUtils.writeBoolPref(context, DECLINED_TO_RATE, true);
-    }
-
-    public static void setDeclinedToFeedback(Context context) {
-        PrefUtils.writeBoolPref(context, DECLINED_TO_FEEDBACK, true);
-    }
 }

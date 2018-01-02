@@ -42,7 +42,15 @@ public class RatingManager {
         return context;
     }
 
-    public boolean showDiialogIfRequired() {
+    public static void setRatingLeft(Context context) {
+        DataManager.setRatingLeft(context);
+    }
+
+    public static void setAskLater(Context context) {
+        DataManager.setAskLater(context);
+    }
+
+    public boolean showDialogIfRequired() {
         if(shouldShowRatingDialog()) {
             ratingDialog.showRatingPopup(getContext());
             return true;
