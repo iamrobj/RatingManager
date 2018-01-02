@@ -102,8 +102,8 @@ public class RatingDialogOptions {
             feedbackPopupTitle = context.getString(R.string.feedback_title);
             feedbackPopupMessage = context.getString(R.string.feedback_text);
             feedbackPopupPositiveBtnText = context.getString(R.string.leave_feedback);
-            feedbackPopupNegativeBtnText = context.getString(R.string.no);
             feedbackPopupLaterBtnText = context.getString(R.string.maybe_later);
+            feedbackPopupNegativeBtnText = context.getString(R.string.never);
             feedbackEmailSubject = context.getString(R.string.email_feedback_subject, getAppLabel(context));
             feedbackEmailBody = null;
         }

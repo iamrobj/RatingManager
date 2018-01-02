@@ -78,8 +78,8 @@ class RatingDialog {
             DataManager.setFeedbackLeft(context);
             launchEmailIntent(context, feedbackEmailAddress, feedbackEmailSubject, feedbackEmailBody);
         });
-        builder.setNegativeButton(feedbackPopupNegativeBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
-        builder.setNeutralButton(feedbackPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        builder.setNegativeButton(feedbackPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        builder.setNeutralButton(feedbackPopupNegativeBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
         builder.setCancelable(false);
         builder.show();
     }
