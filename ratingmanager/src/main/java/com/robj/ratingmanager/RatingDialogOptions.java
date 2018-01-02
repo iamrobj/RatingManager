@@ -199,7 +199,7 @@ public class RatingDialogOptions {
         }
 
         public RatingDialogOptions build() {
-            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupNegativeBtnText, initialPopupPositiveBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupLaterBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
+            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupPositiveBtnText, initialPopupNegativeBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
         }
 
     }
