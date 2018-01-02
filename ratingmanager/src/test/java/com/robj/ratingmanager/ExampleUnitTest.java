@@ -14,7 +14,7 @@ public class ExampleUnitTest {
     @Test
     public void testBuilder() {
         Context context = null; //Mock context for testing build
-        RatingDialogOptionsBuilder ratingDialogOptionsBuilder = new RatingDialogOptionsBuilder(context);
+        RatingDialogOptions ratingDialogOptionsBuilder = new RatingDialogOptions(context);
         new RatingManager.Builder(context)
                 .setMinDaysSinceInstall(1)
                 .setMinDaysSinceAskLater(3)

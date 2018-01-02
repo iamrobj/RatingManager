@@ -99,25 +99,25 @@ class RatingDialog {
         context.startActivity(i);
     }
 
-    RatingDialog(int dialogThemeResId, String initialPopupMessage, String intialPopupNegativeBtnText, String intialPopupPositiveBtnText, String intialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupNegativeBtnText, String ratingPopupPositiveBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody) {
-        this.dialogThemeResId = dialogThemeResId;
-        this.initialPopupMessage = initialPopupMessage;
-        this.intialPopupNegativeBtnText = intialPopupNegativeBtnText;
-        this.intialPopupPositiveBtnText = intialPopupPositiveBtnText;
-        this.intialPopupLaterBtnText = intialPopupLaterBtnText;
-        this.ratingPopupTitle = ratingPopupTitle;
-        this.ratingPopupMessage = ratingPopupMessage;
-        this.ratingPopupNegativeBtnText = ratingPopupNegativeBtnText;
-        this.ratingPopupPositiveBtnText = ratingPopupPositiveBtnText;
-        this.ratingPopupNeverBtnText = ratingPopupNeverBtnText;
-        this.ratingUrl = ratingUrl;
-        this.feedbackPopupTitle = feedbackPopupTitle;
-        this.feedbackPopupMessage = feedbackPopupMessage;
-        this.feedbackPopupNegativeBtnText = feedbackPopupNegativeBtnText;
-        this.feedbackPopupPositiveBtnText = feedbackPopupPositiveBtnText;
-        this.feedbackPopupLaterBtnText = feedbackPopupLaterBtnText;
-        this.feedbackEmailSubject = feedbackEmailSubject;
-        this.feedbackEmailBody = feedbackEmailBody;
+    RatingDialog(RatingDialogOptions ratingDialogOptions) {
+        this.dialogThemeResId = ratingDialogOptions.dialogThemeResId;
+        this.initialPopupMessage = ratingDialogOptions.initialPopupMessage;
+        this.intialPopupNegativeBtnText = ratingDialogOptions.initialPopupNegativeBtnText;
+        this.intialPopupPositiveBtnText = ratingDialogOptions.initialPopupPositiveBtnText;
+        this.intialPopupLaterBtnText = ratingDialogOptions.initialPopupLaterBtnText;
+        this.ratingPopupTitle = ratingDialogOptions.ratingPopupTitle;
+        this.ratingPopupMessage = ratingDialogOptions.ratingPopupMessage;
+        this.ratingPopupNegativeBtnText = ratingDialogOptions.ratingPopupNegativeBtnText;
+        this.ratingPopupPositiveBtnText = ratingDialogOptions.ratingPopupPositiveBtnText;
+        this.ratingPopupNeverBtnText = ratingDialogOptions.ratingPopupNeverBtnText;
+        this.ratingUrl = ratingDialogOptions.ratingUrl;
+        this.feedbackPopupTitle = ratingDialogOptions.feedbackPopupTitle;
+        this.feedbackPopupMessage = ratingDialogOptions.feedbackPopupMessage;
+        this.feedbackPopupNegativeBtnText = ratingDialogOptions.feedbackPopupNegativeBtnText;
+        this.feedbackPopupPositiveBtnText = ratingDialogOptions.feedbackPopupPositiveBtnText;
+        this.feedbackPopupLaterBtnText = ratingDialogOptions.feedbackPopupLaterBtnText;
+        this.feedbackEmailSubject = ratingDialogOptions.feedbackEmailSubject;
+        this.feedbackEmailBody = ratingDialogOptions.feedbackEmailBody;
     }
 
 }
