@@ -16,7 +16,7 @@ public class RatingDialogOptions {
     public final String ratingPopupTitle;
     public final String ratingPopupMessage;
     public final String ratingPopupPositiveBtnText;
-    public final String ratingPopupNegativeBtnText;
+    public final String ratingPopupLaterBtnText;
     public final String ratingPopupNeverBtnText;
     public final String ratingUrl;
 
@@ -28,7 +28,7 @@ public class RatingDialogOptions {
     public final String feedbackEmailSubject;
     public final String feedbackEmailBody;
 
-    public RatingDialogOptions(int dialogThemeResId, String initialPopupMessage, String initialPopupPositiveBtnText, String initialPopupNegativeBtnText, String initialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupPositiveBtnText, String ratingPopupNegativeBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody) {
+    public RatingDialogOptions(int dialogThemeResId, String initialPopupMessage, String initialPopupPositiveBtnText, String initialPopupNegativeBtnText, String initialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupPositiveBtnText, String ratingPopupLaterBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody) {
         this.dialogThemeResId = dialogThemeResId;
         this.initialPopupMessage = initialPopupMessage;
         this.initialPopupPositiveBtnText = initialPopupPositiveBtnText;
@@ -37,7 +37,7 @@ public class RatingDialogOptions {
         this.ratingPopupTitle = ratingPopupTitle;
         this.ratingPopupMessage = ratingPopupMessage;
         this.ratingPopupPositiveBtnText = ratingPopupPositiveBtnText;
-        this.ratingPopupNegativeBtnText = ratingPopupNegativeBtnText;
+        this.ratingPopupLaterBtnText = ratingPopupLaterBtnText;
         this.ratingPopupNeverBtnText = ratingPopupNeverBtnText;
         this.ratingUrl = ratingUrl;
         this.feedbackPopupTitle = feedbackPopupTitle;
@@ -61,7 +61,7 @@ public class RatingDialogOptions {
         private String ratingPopupTitle;
         private String ratingPopupMessage;
         private String ratingPopupPositiveBtnText;
-        private String ratingPopupNegativeBtnText;
+        private String ratingPopupLaterBtnText;
         private String ratingPopupNeverBtnText;
         private String ratingUrl;
 
@@ -95,7 +95,7 @@ public class RatingDialogOptions {
             ratingPopupTitle = context.getString(R.string.rating_title);
             ratingPopupMessage = context.getString(R.string.rating_text);
             ratingPopupPositiveBtnText = context.getString(R.string.rate_us);
-            ratingPopupNegativeBtnText = context.getString(R.string.maybe_later);
+            ratingPopupLaterBtnText = context.getString(R.string.maybe_later);
             ratingPopupNeverBtnText = context.getString(R.string.never);
             ratingUrl = "https://play.google.com/store/apps/details?id=" + context.getPackageName();
 
@@ -143,8 +143,8 @@ public class RatingDialogOptions {
             return this;
         }
 
-        public Builder setRatingPopupNegativeBtnText(String ratingPopupNegativeBtnText) {
-            this.ratingPopupNegativeBtnText = ratingPopupNegativeBtnText;
+        public Builder setRatingPopupLaterBtnText(String ratingPopupLaterBtnText) {
+            this.ratingPopupLaterBtnText = ratingPopupLaterBtnText;
             return this;
         }
 
@@ -199,7 +199,7 @@ public class RatingDialogOptions {
         }
 
         public RatingDialogOptions build() {
-            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupNegativeBtnText, initialPopupPositiveBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupNegativeBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
+            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupNegativeBtnText, initialPopupPositiveBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupLaterBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
         }
 
     }

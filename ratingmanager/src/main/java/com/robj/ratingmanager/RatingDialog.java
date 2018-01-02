@@ -21,7 +21,7 @@ class RatingDialog {
 
     private String ratingPopupTitle;
     private String ratingPopupMessage;
-    private String ratingPopupNegativeBtnText;
+    private String ratingPopupLaterBtnText;
     private String ratingPopupPositiveBtnText;
     private String ratingPopupNeverBtnText;
     private String ratingUrl;
@@ -64,7 +64,7 @@ class RatingDialog {
             DataManager.setRatingLeft(context);
             launchUrl(context, ratingUrl);
         });
-        builder.setNegativeButton(ratingPopupNegativeBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        builder.setNegativeButton(ratingPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
         builder.setNeutralButton(ratingPopupNeverBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
         builder.setCancelable(false);
         builder.show();
@@ -107,7 +107,7 @@ class RatingDialog {
         this.intialPopupLaterBtnText = ratingDialogOptions.initialPopupLaterBtnText;
         this.ratingPopupTitle = ratingDialogOptions.ratingPopupTitle;
         this.ratingPopupMessage = ratingDialogOptions.ratingPopupMessage;
-        this.ratingPopupNegativeBtnText = ratingDialogOptions.ratingPopupNegativeBtnText;
+        this.ratingPopupLaterBtnText = ratingDialogOptions.ratingPopupLaterBtnText;
         this.ratingPopupPositiveBtnText = ratingDialogOptions.ratingPopupPositiveBtnText;
         this.ratingPopupNeverBtnText = ratingDialogOptions.ratingPopupNeverBtnText;
         this.ratingUrl = ratingDialogOptions.ratingUrl;
