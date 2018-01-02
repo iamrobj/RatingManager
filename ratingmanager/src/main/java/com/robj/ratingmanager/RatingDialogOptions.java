@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.support.annotation.StyleRes;
 
-class RatingDialogOptions {
+public class RatingDialogOptions {
 
     public final int dialogThemeResId;
 
