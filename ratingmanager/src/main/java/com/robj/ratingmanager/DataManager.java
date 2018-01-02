@@ -1,6 +1,7 @@
 package com.robj.ratingmanager;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,8 @@ import java.util.concurrent.TimeUnit;
  */
 
 final class DataManager {
+
+    private static final String TAG = DataManager.class.getSimpleName();
 
     protected static final String RATED = "RATED";
     protected static final String INSTALL_DATE = "INSTALL_DATE";
@@ -28,6 +31,7 @@ final class DataManager {
     }
 
     public static void setRatingLeft(Context context) {
+        Log.d(TAG, "Rating left..");
         PrefUtils.writeBoolPref(context, RATED, true);
     }
 
@@ -49,6 +53,7 @@ final class DataManager {
     }
 
     public static void setNeverAsk(Context context) {
+        Log.d(TAG, "Won't ask again..");
         PrefUtils.writeBoolPref(context, NEVER_ASK, true);
     }
 
@@ -66,6 +71,7 @@ final class DataManager {
     }
 
     public static void setFeedbackLeft(Context context) {
+        Log.d(TAG, "Feedback left..");
         PrefUtils.writeLongPref(context, LEFT_FEEDBACK_DATE, getNow());
         int versionCode = getCurrentVersionCode(context);
         PrefUtils.writeIntPref(context, LEFT_FEEDBACK_BUILD, versionCode);
@@ -90,6 +96,7 @@ final class DataManager {
     }
 
     public static void setAskLater(Context context) {
+        Log.d(TAG, "Will ask later..");
         PrefUtils.writeLongPref(context, ASK_LATER_DATE, getNow());
     }
 
