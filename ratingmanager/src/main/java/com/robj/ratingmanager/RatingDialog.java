@@ -23,7 +23,7 @@ class RatingDialog {
     private String ratingPopupMessage;
     private String ratingPopupNegativeBtnText;
     private String ratingPopupPositiveBtnText;
-    private String ratingPopupLaterBtnText;
+    private String ratingPopupNeverBtnText;
     private String ratingUrl;
 
     private String feedbackPopupTitle;
@@ -59,8 +59,8 @@ class RatingDialog {
             DataManager.setRatingLeft(context);
             launchUrl(context, ratingUrl);
         });
-        builder.setNegativeButton(ratingPopupNegativeBtnText, (dialog, which) -> DataManager.setDeclinedToRate(context));
-        builder.setNeutralButton(ratingPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        builder.setNegativeButton(ratingPopupNegativeBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        builder.setNeutralButton(ratingPopupNeverBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
         builder.setCancelable(false);
         builder.show();
     }
@@ -94,7 +94,7 @@ class RatingDialog {
         context.startActivity(i);
     }
 
-    RatingDialog(int dialogThemeResId, String initialPopupMessage, String intialPopupNegativeBtnText, String intialPopupPositiveBtnText, String intialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupNegativeBtnText, String ratingPopupPositiveBtnText, String ratingPopupLaterBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailAddress, String feedbackEmailSubject, String feedbackEmailBody, boolean showFeedbackOption) {
+    RatingDialog(int dialogThemeResId, String initialPopupMessage, String intialPopupNegativeBtnText, String intialPopupPositiveBtnText, String intialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupNegativeBtnText, String ratingPopupPositiveBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailAddress, String feedbackEmailSubject, String feedbackEmailBody, boolean showFeedbackOption) {
         this.dialogThemeResId = dialogThemeResId;
         this.initialPopupMessage = initialPopupMessage;
         this.intialPopupNegativeBtnText = intialPopupNegativeBtnText;
@@ -104,7 +104,7 @@ class RatingDialog {
         this.ratingPopupMessage = ratingPopupMessage;
         this.ratingPopupNegativeBtnText = ratingPopupNegativeBtnText;
         this.ratingPopupPositiveBtnText = ratingPopupPositiveBtnText;
-        this.ratingPopupLaterBtnText = ratingPopupLaterBtnText;
+        this.ratingPopupNeverBtnText = ratingPopupNeverBtnText;
         this.ratingUrl = ratingUrl;
         this.feedbackPopupTitle = feedbackPopupTitle;
         this.feedbackPopupMessage = feedbackPopupMessage;

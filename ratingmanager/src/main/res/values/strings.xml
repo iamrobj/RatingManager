@@ -15,5 +15,6 @@
     <string name="rating_text">We\'d love your help to become a 5* app by leaving a review!</string>
     <string name="rate_us">Rate Us</string>
     <string name="maybe_later">Maybe Later</string>
+    <string name="never">Don\'t ask again</string>
 
 </resources>

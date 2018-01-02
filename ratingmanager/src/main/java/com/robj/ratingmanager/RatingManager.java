@@ -90,7 +90,6 @@ public class RatingManager {
     }
 
     public static class Builder {
-
         private final Context context;
         private int minDaysSinceInstall = 7;
         private int minDaysSinceFeedback = 7;

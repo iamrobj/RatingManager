@@ -18,7 +18,7 @@ public class RatingDialogOptionsBuilder {
     private String ratingPopupMessage;
     private String ratingPopupPositiveBtnText;
     private String ratingPopupNegativeBtnText;
-    private String ratingPopupLaterBtnText;
+    private String ratingPopupNeverBtnText;
     private String ratingUrl;
 
     private String feedbackPopupTitle;
@@ -54,8 +54,8 @@ public class RatingDialogOptionsBuilder {
         ratingPopupTitle = context.getString(R.string.rating_title);
         ratingPopupMessage = context.getString(R.string.rating_text);
         ratingPopupPositiveBtnText = context.getString(R.string.rate_us);
-        ratingPopupNegativeBtnText = context.getString(R.string.no);
-        ratingPopupLaterBtnText = context.getString(R.string.maybe_later);
+        ratingPopupNegativeBtnText = context.getString(R.string.maybe_later);
+        ratingPopupNeverBtnText = context.getString(R.string.never);
         ratingUrl = "https://play.google.com/store/apps/details?id=" + context.getPackageName();
 
         feedbackPopupTitle = context.getString(R.string.feedback_title);
@@ -115,8 +115,8 @@ public class RatingDialogOptionsBuilder {
         return this;
     }
 
-    public RatingDialogOptionsBuilder setRatingPopupLaterBtnText(String ratingPopupLaterBtnText) {
-        this.ratingPopupLaterBtnText = ratingPopupLaterBtnText;
+    public RatingDialogOptionsBuilder setRatingPopupNeverBtnText(String ratingPopupNeverBtnText) {
+        this.ratingPopupNeverBtnText = ratingPopupNeverBtnText;
         return this;
     }
 
@@ -173,6 +173,6 @@ public class RatingDialogOptionsBuilder {
     public RatingDialog build() {
         if(showFeedbackOption && TextUtils.isEmpty(feedbackEmailAddress))
             throw new RuntimeException("showFeedbackOption is true but not email address was provided to send feedback to..");
-        return new RatingDialog(dialogThemeResId, initialPopupMessage, intialPopupNegativeBtnText, intialPopupPositiveBtnText, intialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupNegativeBtnText, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailAddress, feedbackEmailSubject, feedbackEmailBody, showFeedbackOption);
+        return new RatingDialog(dialogThemeResId, initialPopupMessage, intialPopupNegativeBtnText, intialPopupPositiveBtnText, intialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupNegativeBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailAddress, feedbackEmailSubject, feedbackEmailBody, showFeedbackOption);
     }
 }
