@@ -3,7 +3,6 @@ package com.robj.ratingmanager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.support.annotation.StyleRes;
-import android.text.TextUtils;
 
 public class RatingDialogOptionsBuilder {
 
@@ -26,11 +25,8 @@ public class RatingDialogOptionsBuilder {
     private String feedbackPopupNegativeBtnText;
     private String feedbackPopupPositiveBtnText;
     private String feedbackPopupLaterBtnText;
-    private String feedbackEmailAddress;
     private String feedbackEmailSubject;
     private String feedbackEmailBody;
-
-    private boolean showFeedbackOption;
 
     private String getAppLabel(Context context) {
         try {
@@ -63,11 +59,8 @@ public class RatingDialogOptionsBuilder {
         feedbackPopupPositiveBtnText = context.getString(R.string.leave_feedback);
         feedbackPopupNegativeBtnText = context.getString(R.string.no);
         feedbackPopupLaterBtnText = context.getString(R.string.maybe_later);
-        feedbackEmailAddress = null;
         feedbackEmailSubject = context.getString(R.string.email_feedback_subject, getAppLabel(context));
         feedbackEmailBody = null;
-
-        showFeedbackOption = false;
     }
 
     public RatingDialogOptionsBuilder setDialogThemeResId(@StyleRes int dialogThemeResId) {
@@ -150,11 +143,6 @@ public class RatingDialogOptionsBuilder {
         return this;
     }
 
-    public RatingDialogOptionsBuilder setFeedbackEmailAddress(String feedbackEmailAddress) {
-        this.feedbackEmailAddress = feedbackEmailAddress;
-        return this;
-    }
-
     public RatingDialogOptionsBuilder setFeedbackEmailSubject(String feedbackEmailSubject) {
         this.feedbackEmailSubject = feedbackEmailSubject;
         return this;
@@ -165,14 +153,7 @@ public class RatingDialogOptionsBuilder {
         return this;
     }
 
-    public RatingDialogOptionsBuilder showFeedbackOption(boolean showFeedbackOption) {
-        this.showFeedbackOption = showFeedbackOption;
-        return this;
-    }
-
     public RatingDialog build() {
-        if(showFeedbackOption && TextUtils.isEmpty(feedbackEmailAddress))
-            throw new RuntimeException("showFeedbackOption is true but not email address was provided to send feedback to..");
-        return new RatingDialog(dialogThemeResId, initialPopupMessage, intialPopupNegativeBtnText, intialPopupPositiveBtnText, intialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupNegativeBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailAddress, feedbackEmailSubject, feedbackEmailBody, showFeedbackOption);
+        return new RatingDialog(dialogThemeResId, initialPopupMessage, intialPopupNegativeBtnText, intialPopupPositiveBtnText, intialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupNegativeBtnText, ratingPopupPositiveBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
     }
 }

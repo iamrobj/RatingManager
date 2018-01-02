@@ -28,14 +28,12 @@ public class RatingManager {
         this.minDaysSinceFeedback = builder.minDaysSinceFeedback;
         this.minDaysSinceAskLater = builder.minDaysSinceAskLater;
         this.rules = builder.rules;
-        if(builder.ratingDialog == null) {
-            RatingDialogOptionsBuilder ratingDialogOptionsBuilder = new RatingDialogOptionsBuilder(context)
-                    .showFeedbackOption(builder.showFeedbackOptionFirst);
-            if(builder.showFeedbackOptionFirst)
-                ratingDialogOptionsBuilder.setFeedbackEmailAddress(builder.feedbackEmailAddress);
-            builder.ratingDialog = ratingDialogOptionsBuilder.build();
+        if(builder.ratingDialogOptions == null) {
+            RatingDialogOptionsBuilder ratingDialogOptionsBuilder = new RatingDialogOptionsBuilder(context);
+            builder.ratingDialogOptions = ratingDialogOptionsBuilder.build();
         }
-        this.ratingDialog = builder.ratingDialog;
+        this.ratingDialog = builder.ratingDialogOptions;
+        this.ratingDialog.setShowFeedbackOption(builder.showFeedbackOptionFirst, builder.feedbackEmailAddress);
     }
 
     private Context getContext() {
@@ -102,7 +100,7 @@ public class RatingManager {
         private int minDaysSinceInstall = 7;
         private int minDaysSinceFeedback = 7;
         private int minDaysSinceAskLater = 7;
-        private RatingDialog ratingDialog;
+        private RatingDialog ratingDialogOptions;
         private final List<Rule> rules = new ArrayList();
         private boolean showFeedbackOptionFirst = false;
         public String feedbackEmailAddress;
@@ -132,7 +130,7 @@ public class RatingManager {
         }
 
         public Builder setRatingDialogOptions(RatingDialogOptionsBuilder ratingDialogOptionsBuilder) {
-            this.ratingDialog = ratingDialogOptionsBuilder.build();
+            this.ratingDialogOptions = ratingDialogOptionsBuilder.build();
             return this;
         }
 

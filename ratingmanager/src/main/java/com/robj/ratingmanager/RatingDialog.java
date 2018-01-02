@@ -37,6 +37,11 @@ class RatingDialog {
 
     private boolean showFeedbackOption;
 
+    protected void setShowFeedbackOption(boolean showFeedbackOption, String feedbackEmail) {
+        this.showFeedbackOption = showFeedbackOption;
+        this.feedbackEmailAddress = feedbackEmail;
+    }
+
     public void showRatingPopup(final Context context) {
         if(!showFeedbackOption) {
             showLeaveRatingPopup(context);
@@ -94,7 +99,7 @@ class RatingDialog {
         context.startActivity(i);
     }
 
-    RatingDialog(int dialogThemeResId, String initialPopupMessage, String intialPopupNegativeBtnText, String intialPopupPositiveBtnText, String intialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupNegativeBtnText, String ratingPopupPositiveBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailAddress, String feedbackEmailSubject, String feedbackEmailBody, boolean showFeedbackOption) {
+    RatingDialog(int dialogThemeResId, String initialPopupMessage, String intialPopupNegativeBtnText, String intialPopupPositiveBtnText, String intialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupNegativeBtnText, String ratingPopupPositiveBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody) {
         this.dialogThemeResId = dialogThemeResId;
         this.initialPopupMessage = initialPopupMessage;
         this.intialPopupNegativeBtnText = intialPopupNegativeBtnText;
@@ -111,10 +116,8 @@ class RatingDialog {
         this.feedbackPopupNegativeBtnText = feedbackPopupNegativeBtnText;
         this.feedbackPopupPositiveBtnText = feedbackPopupPositiveBtnText;
         this.feedbackPopupLaterBtnText = feedbackPopupLaterBtnText;
-        this.feedbackEmailAddress = feedbackEmailAddress;
         this.feedbackEmailSubject = feedbackEmailSubject;
         this.feedbackEmailBody = feedbackEmailBody;
-        this.showFeedbackOption = showFeedbackOption;
     }
 
 }
