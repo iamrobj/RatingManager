@@ -92,15 +92,15 @@ public class RatingDialogOptions {
         private String feedbackEmailSubject;
         private String feedbackEmailBody;
 
-        public OnRatingClickListener onInitialPositiveClickListener;
-        public OnRatingClickListener onInitialNegativeClickListener;
-        public OnRatingClickListener onInitialLaterClickListener;
-        public OnRatingClickListener onPopupPositiveClickListener;
-        public OnRatingClickListener onPopupNegativeClickListener;
-        public OnRatingClickListener onPopupLaterClickListener;
-        public OnRatingClickListener onFeedbackPositiveClickListener;
-        public OnRatingClickListener onFeedbackNegativeClickListener;
-        public OnRatingClickListener onFeedbackLaterClickListener;
+        private OnRatingClickListener onInitialPositiveClickListener;
+        private OnRatingClickListener onInitialNegativeClickListener;
+        private OnRatingClickListener onInitialLaterClickListener;
+        private OnRatingClickListener onRatingPositiveClickListener;
+        private OnRatingClickListener onRatingNegativeClickListener;
+        private OnRatingClickListener onRatingLaterClickListener;
+        private OnRatingClickListener onFeedbackPositiveClickListener;
+        private OnRatingClickListener onFeedbackNegativeClickListener;
+        private OnRatingClickListener onFeedbackLaterClickListener;
 
         private String getAppLabel(Context context) {
             try {
@@ -242,18 +242,18 @@ public class RatingDialogOptions {
             return this;
         }
 
-        public Builder setOnPopupPositiveClickListener(OnRatingClickListener onPopupPositiveClickListener) {
-            this.onPopupPositiveClickListener = onPopupPositiveClickListener;
+        public Builder setOnRatingPositiveClickListener(OnRatingClickListener onPopupPositiveClickListener) {
+            this.onRatingPositiveClickListener = onPopupPositiveClickListener;
             return this;
         }
 
-        public Builder setOnPopupNegativeClickListener(OnRatingClickListener onPopupNegativeClickListener) {
-            this.onPopupNegativeClickListener = onPopupNegativeClickListener;
+        public Builder setOnRatingNegativeClickListener(OnRatingClickListener onPopupNegativeClickListener) {
+            this.onRatingNegativeClickListener = onPopupNegativeClickListener;
             return this;
         }
 
-        public Builder setOnPopupLaterClickListener(OnRatingClickListener onPopupLaterClickListener) {
-            this.onPopupLaterClickListener = onPopupLaterClickListener;
+        public Builder setOnRatingLaterClickListener(OnRatingClickListener onPopupLaterClickListener) {
+            this.onRatingLaterClickListener = onPopupLaterClickListener;
             return this;
         }
 
@@ -273,7 +273,7 @@ public class RatingDialogOptions {
         }
 
         public RatingDialogOptions build() {
-            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupPositiveBtnText, initialPopupNegativeBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody, onInitialPositiveClickListener, onInitialNegativeClickListener, onInitialLaterClickListener, onPopupPositiveClickListener, onPopupNegativeClickListener, onPopupLaterClickListener, onFeedbackPositiveClickListener, onFeedbackNegativeClickListener, onFeedbackLaterClickListener);
+            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupPositiveBtnText, initialPopupNegativeBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody, onInitialPositiveClickListener, onInitialNegativeClickListener, onInitialLaterClickListener, onRatingPositiveClickListener, onRatingNegativeClickListener, onRatingLaterClickListener, onFeedbackPositiveClickListener, onFeedbackNegativeClickListener, onFeedbackLaterClickListener);
         }
 
     }
