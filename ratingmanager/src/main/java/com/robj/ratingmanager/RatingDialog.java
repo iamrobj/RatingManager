@@ -3,7 +3,6 @@ package com.robj.ratingmanager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.StyleRes;
 import android.support.v7.app.AlertDialog;
 /**
  * Created by Rob J on 16/09/17.
@@ -11,30 +10,9 @@ import android.support.v7.app.AlertDialog;
 
 class RatingDialog {
 
-    @StyleRes
-    private int dialogThemeResId;
-
-    private String initialPopupMessage;
-    private String intialPopupNegativeBtnText;
-    private String intialPopupPositiveBtnText;
-    private String intialPopupLaterBtnText;
-
-    private String ratingPopupTitle;
-    private String ratingPopupMessage;
-    private String ratingPopupLaterBtnText;
-    private String ratingPopupPositiveBtnText;
-    private String ratingPopupNeverBtnText;
-    private String ratingUrl;
-
-    private String feedbackPopupTitle;
-    private String feedbackPopupMessage;
-    private String feedbackPopupNegativeBtnText;
-    private String feedbackPopupPositiveBtnText;
-    private String feedbackPopupLaterBtnText;
+    private final RatingDialogOptions ratingDialogOptions;
+    
     private String feedbackEmailAddress;
-    private String feedbackEmailSubject;
-    private String feedbackEmailBody;
-
     private boolean showFeedbackOption;
 
     protected void setShowFeedbackOption(boolean showFeedbackOption, String feedbackEmail) {
@@ -47,39 +25,71 @@ class RatingDialog {
             showLeaveRatingPopup(context);
             return;
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, dialogThemeResId);
-        builder.setMessage(initialPopupMessage);
-        builder.setPositiveButton(intialPopupPositiveBtnText, (dialog, which) -> showLeaveRatingPopup(context));
-        builder.setNegativeButton(intialPopupNegativeBtnText, (dialog, which) -> showFeedbackPopup(context));
-        builder.setNeutralButton(intialPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, ratingDialogOptions.dialogThemeResId);
+        builder.setMessage(ratingDialogOptions.initialPopupMessage);
+        builder.setPositiveButton(ratingDialogOptions.initialPopupPositiveBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onInitialPositiveClickListener != null)
+                ratingDialogOptions.onInitialPositiveClickListener.onClick();
+            showLeaveRatingPopup(context);
+        });
+        builder.setNegativeButton(ratingDialogOptions.initialPopupNegativeBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onInitialNegativeClickListener != null)
+                ratingDialogOptions.onInitialNegativeClickListener.onClick();
+            showFeedbackPopup(context);
+        });
+        builder.setNeutralButton(ratingDialogOptions.initialPopupLaterBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onInitialLaterClickListener != null)
+                ratingDialogOptions.onInitialLaterClickListener.onClick();
+            DataManager.setAskLater(context);
+        });
         builder.setCancelable(false);
         builder.show();
     }
 
     private void showLeaveRatingPopup(final Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, dialogThemeResId);
-        builder.setTitle(ratingPopupTitle);
-        builder.setMessage(ratingPopupMessage);
-        builder.setPositiveButton(ratingPopupPositiveBtnText, (dialog, which) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, ratingDialogOptions.dialogThemeResId);
+        builder.setTitle(ratingDialogOptions.ratingPopupTitle);
+        builder.setMessage(ratingDialogOptions.ratingPopupMessage);
+        builder.setPositiveButton(ratingDialogOptions.ratingPopupPositiveBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onRatingPositiveClickListener != null)
+                ratingDialogOptions.onRatingPositiveClickListener.onClick();
             DataManager.setRatingLeft(context);
-            launchUrl(context, ratingUrl);
+            launchUrl(context, ratingDialogOptions.ratingUrl);
         });
-        builder.setNegativeButton(ratingPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
-        builder.setNeutralButton(ratingPopupNeverBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
+        builder.setNegativeButton(ratingDialogOptions.ratingPopupLaterBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onRatingLaterClickListener != null)
+                ratingDialogOptions.onRatingLaterClickListener.onClick();
+            DataManager.setAskLater(context);
+        });
+        builder.setNeutralButton(ratingDialogOptions.ratingPopupNeverBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onRatingNegativeClickListener != null)
+                ratingDialogOptions.onRatingNegativeClickListener.onClick();
+            DataManager.setNeverAsk(context);
+        });
         builder.setCancelable(false);
         builder.show();
     }
 
     private void showFeedbackPopup(final Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, dialogThemeResId);
-        builder.setTitle(feedbackPopupTitle);
-        builder.setMessage(feedbackPopupMessage);
-        builder.setPositiveButton(feedbackPopupPositiveBtnText, (dialog, which) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, ratingDialogOptions.dialogThemeResId);
+        builder.setTitle(ratingDialogOptions.feedbackPopupTitle);
+        builder.setMessage(ratingDialogOptions.feedbackPopupMessage);
+        builder.setPositiveButton(ratingDialogOptions.feedbackPopupPositiveBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onFeedbackPositiveClickListener != null)
+                ratingDialogOptions.onFeedbackPositiveClickListener.onClick();
             DataManager.setFeedbackLeft(context);
-            launchEmailIntent(context, feedbackEmailAddress, feedbackEmailSubject, feedbackEmailBody);
+            launchEmailIntent(context, feedbackEmailAddress, ratingDialogOptions.feedbackEmailSubject, ratingDialogOptions.feedbackEmailBody);
         });
-        builder.setNegativeButton(feedbackPopupLaterBtnText, (dialog, which) -> DataManager.setAskLater(context));
-        builder.setNeutralButton(feedbackPopupNegativeBtnText, (dialog, which) -> DataManager.setNeverAsk(context));
+        builder.setNegativeButton(ratingDialogOptions.feedbackPopupLaterBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onFeedbackLaterClickListener != null)
+                ratingDialogOptions.onFeedbackLaterClickListener.onClick();
+            DataManager.setAskLater(context);
+        });
+        builder.setNeutralButton(ratingDialogOptions.feedbackPopupNegativeBtnText, (dialog, which) -> {
+            if(ratingDialogOptions.onFeedbackNegativeClickListener != null)
+                ratingDialogOptions.onFeedbackNegativeClickListener.onClick();
+            DataManager.setNeverAsk(context);
+        });
         builder.setCancelable(false);
         builder.show();
     }
@@ -100,24 +110,8 @@ class RatingDialog {
     }
 
     RatingDialog(RatingDialogOptions ratingDialogOptions) {
-        this.dialogThemeResId = ratingDialogOptions.dialogThemeResId;
-        this.initialPopupMessage = ratingDialogOptions.initialPopupMessage;
-        this.intialPopupNegativeBtnText = ratingDialogOptions.initialPopupNegativeBtnText;
-        this.intialPopupPositiveBtnText = ratingDialogOptions.initialPopupPositiveBtnText;
-        this.intialPopupLaterBtnText = ratingDialogOptions.initialPopupLaterBtnText;
-        this.ratingPopupTitle = ratingDialogOptions.ratingPopupTitle;
-        this.ratingPopupMessage = ratingDialogOptions.ratingPopupMessage;
-        this.ratingPopupLaterBtnText = ratingDialogOptions.ratingPopupLaterBtnText;
-        this.ratingPopupPositiveBtnText = ratingDialogOptions.ratingPopupPositiveBtnText;
-        this.ratingPopupNeverBtnText = ratingDialogOptions.ratingPopupNeverBtnText;
-        this.ratingUrl = ratingDialogOptions.ratingUrl;
-        this.feedbackPopupTitle = ratingDialogOptions.feedbackPopupTitle;
-        this.feedbackPopupMessage = ratingDialogOptions.feedbackPopupMessage;
-        this.feedbackPopupNegativeBtnText = ratingDialogOptions.feedbackPopupNegativeBtnText;
-        this.feedbackPopupPositiveBtnText = ratingDialogOptions.feedbackPopupPositiveBtnText;
-        this.feedbackPopupLaterBtnText = ratingDialogOptions.feedbackPopupLaterBtnText;
-        this.feedbackEmailSubject = ratingDialogOptions.feedbackEmailSubject;
-        this.feedbackEmailBody = ratingDialogOptions.feedbackEmailBody;
+        this.ratingDialogOptions = ratingDialogOptions;
+        
     }
 
 }

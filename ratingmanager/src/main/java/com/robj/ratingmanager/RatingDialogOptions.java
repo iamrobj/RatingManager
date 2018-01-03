@@ -27,8 +27,18 @@ public class RatingDialogOptions {
     public final String feedbackPopupLaterBtnText;
     public final String feedbackEmailSubject;
     public final String feedbackEmailBody;
+    
+    public final OnRatingClickListener onInitialPositiveClickListener;
+    public final OnRatingClickListener onInitialNegativeClickListener;
+    public final OnRatingClickListener onInitialLaterClickListener;
+    public final OnRatingClickListener onRatingPositiveClickListener;
+    public final OnRatingClickListener onRatingNegativeClickListener;
+    public final OnRatingClickListener onRatingLaterClickListener;
+    public final OnRatingClickListener onFeedbackPositiveClickListener;
+    public final OnRatingClickListener onFeedbackNegativeClickListener;
+    public final OnRatingClickListener onFeedbackLaterClickListener;
 
-    public RatingDialogOptions(int dialogThemeResId, String initialPopupMessage, String initialPopupPositiveBtnText, String initialPopupNegativeBtnText, String initialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupPositiveBtnText, String ratingPopupLaterBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody) {
+    public RatingDialogOptions(int dialogThemeResId, String initialPopupMessage, String initialPopupPositiveBtnText, String initialPopupNegativeBtnText, String initialPopupLaterBtnText, String ratingPopupTitle, String ratingPopupMessage, String ratingPopupPositiveBtnText, String ratingPopupLaterBtnText, String ratingPopupNeverBtnText, String ratingUrl, String feedbackPopupTitle, String feedbackPopupMessage, String feedbackPopupNegativeBtnText, String feedbackPopupPositiveBtnText, String feedbackPopupLaterBtnText, String feedbackEmailSubject, String feedbackEmailBody, OnRatingClickListener onInitialPositiveClickListener, OnRatingClickListener onInitialNegativeClickListener, OnRatingClickListener onInitialLaterClickListener, OnRatingClickListener onRatingPositiveClickListener, OnRatingClickListener onRatingNegativeClickListener, OnRatingClickListener onRatingLaterClickListener, OnRatingClickListener onFeedbackPositiveClickListener, OnRatingClickListener onFeedbackNegativeClickListener, OnRatingClickListener onFeedbackLaterClickListener) {
         this.dialogThemeResId = dialogThemeResId;
         this.initialPopupMessage = initialPopupMessage;
         this.initialPopupPositiveBtnText = initialPopupPositiveBtnText;
@@ -47,6 +57,15 @@ public class RatingDialogOptions {
         this.feedbackPopupLaterBtnText = feedbackPopupLaterBtnText;
         this.feedbackEmailSubject = feedbackEmailSubject;
         this.feedbackEmailBody = feedbackEmailBody;
+        this.onInitialPositiveClickListener = onInitialPositiveClickListener;
+        this.onInitialNegativeClickListener = onInitialNegativeClickListener;
+        this.onInitialLaterClickListener = onInitialLaterClickListener;
+        this.onRatingPositiveClickListener = onRatingPositiveClickListener;
+        this.onRatingNegativeClickListener = onRatingNegativeClickListener;
+        this.onRatingLaterClickListener = onRatingLaterClickListener;
+        this.onFeedbackPositiveClickListener = onFeedbackPositiveClickListener;
+        this.onFeedbackNegativeClickListener = onFeedbackNegativeClickListener;
+        this.onFeedbackLaterClickListener = onFeedbackLaterClickListener;
     }
 
     public static class Builder {
@@ -72,6 +91,16 @@ public class RatingDialogOptions {
         private String feedbackPopupLaterBtnText;
         private String feedbackEmailSubject;
         private String feedbackEmailBody;
+
+        public OnRatingClickListener onInitialPositiveClickListener;
+        public OnRatingClickListener onInitialNegativeClickListener;
+        public OnRatingClickListener onInitialLaterClickListener;
+        public OnRatingClickListener onPopupPositiveClickListener;
+        public OnRatingClickListener onPopupNegativeClickListener;
+        public OnRatingClickListener onPopupLaterClickListener;
+        public OnRatingClickListener onFeedbackPositiveClickListener;
+        public OnRatingClickListener onFeedbackNegativeClickListener;
+        public OnRatingClickListener onFeedbackLaterClickListener;
 
         private String getAppLabel(Context context) {
             try {
@@ -198,8 +227,53 @@ public class RatingDialogOptions {
             return this;
         }
 
+        public Builder setOnInitialPositiveClickListener(OnRatingClickListener onInitialPositiveClickListener) {
+            this.onInitialPositiveClickListener = onInitialPositiveClickListener;
+            return this;
+        }
+
+        public Builder setOnInitialNegativeClickListener(OnRatingClickListener onInitialNegativeClickListener) {
+            this.onInitialNegativeClickListener = onInitialNegativeClickListener;
+            return this;
+        }
+
+        public Builder setOnInitialLaterClickListener(OnRatingClickListener onInitialLaterClickListener) {
+            this.onInitialLaterClickListener = onInitialLaterClickListener;
+            return this;
+        }
+
+        public Builder setOnPopupPositiveClickListener(OnRatingClickListener onPopupPositiveClickListener) {
+            this.onPopupPositiveClickListener = onPopupPositiveClickListener;
+            return this;
+        }
+
+        public Builder setOnPopupNegativeClickListener(OnRatingClickListener onPopupNegativeClickListener) {
+            this.onPopupNegativeClickListener = onPopupNegativeClickListener;
+            return this;
+        }
+
+        public Builder setOnPopupLaterClickListener(OnRatingClickListener onPopupLaterClickListener) {
+            this.onPopupLaterClickListener = onPopupLaterClickListener;
+            return this;
+        }
+
+        public Builder setOnFeedbackPositiveClickListener(OnRatingClickListener onFeedbackPositiveClickListener) {
+            this.onFeedbackPositiveClickListener = onFeedbackPositiveClickListener;
+            return this;
+        }
+
+        public Builder setOnFeedbackNegativeClickListener(OnRatingClickListener onFeedbackNegativeClickListener) {
+            this.onFeedbackNegativeClickListener = onFeedbackNegativeClickListener;
+            return this;
+        }
+
+        public Builder setOnFeedbackLaterClickListener(OnRatingClickListener onFeedbackLaterClickListener) {
+            this.onFeedbackLaterClickListener = onFeedbackLaterClickListener;
+            return this;
+        }
+
         public RatingDialogOptions build() {
-            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupPositiveBtnText, initialPopupNegativeBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody);
+            return new RatingDialogOptions(dialogThemeResId, initialPopupMessage, initialPopupPositiveBtnText, initialPopupNegativeBtnText, initialPopupLaterBtnText, ratingPopupTitle, ratingPopupMessage, ratingPopupPositiveBtnText, ratingPopupLaterBtnText, ratingPopupNeverBtnText, ratingUrl, feedbackPopupTitle, feedbackPopupMessage, feedbackPopupNegativeBtnText, feedbackPopupPositiveBtnText, feedbackPopupLaterBtnText, feedbackEmailSubject, feedbackEmailBody, onInitialPositiveClickListener, onInitialNegativeClickListener, onInitialLaterClickListener, onPopupPositiveClickListener, onPopupNegativeClickListener, onPopupLaterClickListener, onFeedbackPositiveClickListener, onFeedbackNegativeClickListener, onFeedbackLaterClickListener);
         }
 
     }
