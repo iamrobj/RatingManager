@@ -1,7 +1,7 @@
 package com.robj.ratingmanager;
 
 /**
- * Created by jj on 26/11/17.
+ * Created by Rob J on 26/11/17.
  */
 
 public interface OnRatingClickListener {

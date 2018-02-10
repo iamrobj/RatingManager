@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jj on 16/10/17.
+ * Created by Rob J on 16/10/17.
  */
 
 public class RatingManager {

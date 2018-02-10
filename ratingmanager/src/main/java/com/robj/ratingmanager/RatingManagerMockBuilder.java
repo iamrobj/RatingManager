@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.Calendar;
 
 /**
- * Created by jj on 01/01/18.
+ * Created by Rob J on 01/01/18.
  */
 
 public class RatingManagerMockBuilder {

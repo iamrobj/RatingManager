@@ -6,7 +6,7 @@ import android.util.Log;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by jj on 01/01/18.
+ * Created by Rob J on 01/01/18.
  */
 
 final class DataManager {
