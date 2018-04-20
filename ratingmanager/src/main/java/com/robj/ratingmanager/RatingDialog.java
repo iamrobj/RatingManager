@@ -46,7 +46,7 @@ class RatingDialog {
         builder.show();
     }
 
-    private void showLeaveRatingPopup(final Context context) {
+    public void showLeaveRatingPopup(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, ratingDialogOptions.dialogThemeResId);
         builder.setTitle(ratingDialogOptions.ratingPopupTitle);
         builder.setMessage(ratingDialogOptions.ratingPopupMessage);

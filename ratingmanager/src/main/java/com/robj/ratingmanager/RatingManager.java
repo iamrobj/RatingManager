@@ -56,8 +56,12 @@ public class RatingManager {
         return false;
     }
 
-    public void forceShowDialog() {
+    public void forceShowFeedbackDialog() {
         ratingDialog.showRatingPopup(getContext());
+    }
+
+    public void forceShowRatingDialog() {
+        ratingDialog.showLeaveRatingPopup(getContext());
     }
 
     public boolean shouldShowRatingDialog() {
