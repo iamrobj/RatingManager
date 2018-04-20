@@ -56,6 +56,10 @@ public class RatingManager {
         return false;
     }
 
+    public void forceShowDialog() {
+        ratingDialog.showRatingPopup(getContext());
+    }
+
     public boolean shouldShowRatingDialog() {
         if(DataManager.wasRatingLeft(getContext())) {
             Log.i(TAG, "Rating already left, nothing doing..");
